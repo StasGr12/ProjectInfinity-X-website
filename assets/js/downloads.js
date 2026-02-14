@@ -46,7 +46,7 @@ function getPrimaryCodename(codename) { return codename.split('/')[0].trim(); }
 function getCodenameFromPath() { const path = window.location.pathname; const match = path.match(/\/downloads\/([a-zA-Z0-9_-]+)/); return match ? match[1] : null; }
 async function fetchContent(url, type = 'json') { if (deviceDataCache[url]) return deviceDataCache[url]; try { const response = await fetch(url); if (!response.ok) throw new Error("HTTP error! Status: "+response.status); let data; if (type === 'json') data = await response.json(); else data = await response.text(); deviceDataCache[url] = data; return data; } catch(e){return null;} }
 function getDeviceImageUrl(primaryCodename) { if (imageCache[primaryCodename]) return imageCache[primaryCodename]; return `https://raw.githubusercontent.com/ProjectInfinity-X/official_devices/16/deviceimages/${primaryCodename}.webp`; }
-function getBrandFromModel(modelName) { const lowerModel = modelName.toLowerCase(); for (const [brand, keywords] of Object.entries(BRAND_CATEGORIES)) { for (const keyword of keywords) { if (lowerModel.includes(keyword)) return brand; } } return 'Other'; }
+function getBrandFromModel(modelName) { const lowerModel = modelName.toLowerCase(); for (const [brand, keywords] of Object.entries(BRAND_CATEGORIES)) { for (const keyword of keywords) { if (lowerModel.includes(keyword)) return brand; } } return null; }
 function createBrandButtons(brands) { const allBrandsBtn = document.querySelector('.brand-btn[data-brand="all"]'); brandCategories.innerHTML = ''; if(allBrandsBtn)brandCategories.appendChild(allBrandsBtn); brands.forEach(brand => { if (brand === 'All') return; const button = document.createElement('button'); button.className = 'brand-btn'; button.dataset.brand = brand; button.textContent = brand; brandCategories.appendChild(button); }); }
 
 async function getDeviceBranchPresence(codename) {
@@ -107,7 +107,7 @@ async function loadDevices() {
 
         const allDevices = (await Promise.all(fetchPromises)).filter(d => d !== null);
 
-        const uniqueBrands = [...new Set(allDevices.map(d => d.brand))].sort();
+        const uniqueBrands = [...new Set(allDevices.map(d => d.brand).filter(Boolean))].sort();
         createBrandButtons(uniqueBrands);
 
         window.allDevices = allDevices;
