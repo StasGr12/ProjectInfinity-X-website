@@ -28,6 +28,11 @@
             overflow-x: hidden;
             position: relative;
         }
+        @keyframes projectTitleShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
         .android-bar {
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -68,8 +73,9 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            animation: pulse 3s infinite;
-            will-change: box-shadow, transform;
+            animation: none;
+            box-shadow: none;
+            will-change: auto;
         }
         .logo-icon i {
             font-size: 24px;
@@ -79,10 +85,14 @@
             font-family: 'Google Sans', sans-serif;
             font-weight: 700;
             font-size: 24px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+            background-size: 260% 100%;
             -webkit-background-clip: text;
     background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: projectTitleShift 2.2s ease-in-out infinite;
+            will-change: background-position;
             letter-spacing: -0.5px;
         }
         .nav-links {
@@ -182,7 +192,7 @@
         }
         /* Footer */
         footer {
-            background: var(--darker);
+            background: rgba(0, 0, 0, 0.9);
             padding: 60px 0 30px;
             position: relative;
             border-radius: 40px 40px 0 0;
@@ -197,7 +207,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--darker);
+            background: rgba(0, 0, 0, 0.9);
             z-index: -1;
             border-radius: 40px 40px 0 0;
         }
@@ -302,6 +312,10 @@
             align-items: center;
             padding: 12px 0;
         }
+        .mobile-nav-container .container > a {
+            display: flex;
+            justify-content: center;
+        }
         .mobile-logo {
             width: 40px;
             height: 40px;
@@ -310,8 +324,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: pulse 3s infinite;
-            will-change: box-shadow, transform;
+            animation: none;
+            box-shadow: none;
+            will-change: auto;
         }
         .mobile-logo i {
             font-size: 18px;
@@ -341,11 +356,21 @@
             font-weight: 700;
             font-size: 1.8rem;
             text-align: center;
-            margin: 8px 0 12px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 6px auto 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary);
+            border-radius: 999px;
+            padding: 6px 18px;
+            background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+            background-size: 260% 100%;
             -webkit-background-clip: text;
     background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: projectTitleShift 2.2s ease-in-out infinite;
+            will-change: background-position;
             letter-spacing: -0.5px;
         }
         .mobile-nav-links {
@@ -355,6 +380,7 @@
             border-radius: 15px;
             padding: 20px;
             margin-top: 10px;
+            border: 1px solid rgba(79, 195, 247, 0.5);
             will-change: transform, opacity;
         }
         .mobile-nav-links.active {
@@ -425,6 +451,23 @@
         @media (max-width: 480px) {
             .mobile-project-name {
                 font-size: 1.6rem;
+            }
+        }
+
+        @media (min-width: 781px) {
+            .navbar {
+                border: 2px solid var(--primary);
+                border-radius: 999px;
+                padding: 12px 22px;
+                background: #000;
+            }
+
+            .logo-icon {
+                display: none;
+            }
+
+            .logo {
+                gap: 0;
             }
         }
         /* PERFORMANCE OPTIMIZATIONS */

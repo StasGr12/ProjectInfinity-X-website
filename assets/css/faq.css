@@ -31,6 +31,16 @@ body {
     position: relative;
 }
 
+@keyframes projectTitleShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+html body {
+    background: #000;
+}
+
 .android-bar {
     height: 4px;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -45,6 +55,29 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.mobile-nav-container .container > a {
+    display: flex;
+    justify-content: center;
+}
+
+body .mobile-project-name {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--primary);
+    border-radius: 999px;
+    padding: 6px 18px;
+    margin: 6px auto 12px;
+    background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+    background-size: 260% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: projectTitleShift 2.2s ease-in-out infinite;
+    will-change: background-position;
 }
 
 /* Header Styles */
@@ -74,7 +107,7 @@ header {
     gap: 15px;
 }
 
-.logo-icon {
+body .logo-icon {
     width: 50px;
     height: 50px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -84,8 +117,9 @@ header {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    animation: pulse 3s infinite;
-    will-change: box-shadow, transform;
+    animation: none;
+    box-shadow: none;
+    will-change: auto;
 }
 
 .logo-icon i {
@@ -93,14 +127,24 @@ header {
     color: white;
 }
 
+body .mobile-logo {
+    animation: none;
+    box-shadow: none;
+    will-change: auto;
+}
+
 .logo-text {
     font-family: 'Google Sans', sans-serif;
     font-weight: 700;
     font-size: 24px;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+    background-size: 260% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: projectTitleShift 2.2s ease-in-out infinite;
+    will-change: background-position;
     letter-spacing: -0.5px;
 }
 
@@ -158,7 +202,7 @@ header {
 
 /* FAQ Hero Section */
 .faq-hero-card {
-    background: var(--card-bg);
+    background: #0b0b0b;
     border-radius: 24px;
     padding: 48px 40px 44px;
     margin: 40px auto 40px;
@@ -213,10 +257,11 @@ header {
 
 /* FAQ Card Styles */
 .faq-card {
-    background: var(--card-bg);
+    background: #0b0b0b;
     border-radius: 20px;
     padding: 30px;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
+    max-width: 1000px;
     border: 1px solid rgba(66, 133, 244, 0.18);
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     opacity: 0;
@@ -308,7 +353,8 @@ header {
 
 /* Contact Card Special Styling */
 .faq-contact {
-    background: linear-gradient(135deg, rgba(66, 133, 244, 0.1), rgba(0, 198, 255, 0.1));
+    background-color: #0b0b0b;
+    background-image: linear-gradient(135deg, rgba(66, 133, 244, 0.1), rgba(0, 198, 255, 0.1));
     border-color: rgba(66, 133, 244, 0.3);
     text-align: center;
 }
@@ -360,7 +406,7 @@ header {
 
 /* Footer styles */
 footer {
-    background: var(--darker);
+    background: rgba(0, 0, 0, 0.9);
     padding: 60px 0 30px;
     position: relative;
     border-radius: 40px 40px 0 0;
@@ -376,7 +422,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--darker);
+    background: rgba(0, 0, 0, 0.9);
     z-index: -1;
     border-radius: 40px 40px 0 0;
 }
@@ -485,7 +531,8 @@ footer::before {
     }
     .faq-hero-card { 
         padding: 40px 28px 38px;
-        margin: 30px 16px 40px;
+        margin: 30px auto 40px;
+        width: 100%;
     }
     
     .faq-card {
@@ -503,6 +550,23 @@ footer::before {
     
     .mobile-project-name {
         font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 781px) {
+    .navbar {
+        border: 2px solid var(--primary);
+        border-radius: 999px;
+        padding: 12px 22px;
+        background: #000;
+    }
+
+    body .logo-icon {
+        display: none;
+    }
+
+    .logo {
+        gap: 0;
     }
 }
 
