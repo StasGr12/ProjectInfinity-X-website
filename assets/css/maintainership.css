@@ -31,6 +31,12 @@ body {
     position: relative;
 }
 
+@keyframes projectTitleShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .android-bar {
     height: 4px;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -76,8 +82,9 @@ header {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    animation: pulse 3s infinite;
-    will-change: box-shadow, transform;
+    animation: none;
+    box-shadow: none;
+    will-change: auto;
 }
 
 .logo-icon i {
@@ -89,10 +96,14 @@ header {
     font-family: 'Google Sans', sans-serif;
     font-weight: 700;
     font-size: 24px;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+    background-size: 260% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: projectTitleShift 2.2s ease-in-out infinite;
+    will-change: background-position;
     letter-spacing: -0.5px;
 }
 
@@ -302,7 +313,7 @@ header {
 
 /* Footer */
 footer {
-    background: var(--darker);
+    background: rgba(0, 0, 0, 0.9);
     padding: 60px 0 30px;
     position: relative;
     border-radius: 40px 40px 0 0;
@@ -318,7 +329,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--darker);
+    background: rgba(0, 0, 0, 0.9);
     z-index: -1;
     border-radius: 40px 40px 0 0;
 }
@@ -441,6 +452,11 @@ footer::before {
     padding: 12px 0; /* Reduced padding */
 }
 
+.mobile-nav-container .container > a {
+    display: flex;
+    justify-content: center;
+}
+
 .mobile-logo {
     width: 40px;
     height: 40px;
@@ -449,8 +465,9 @@ footer::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: pulse 3s infinite;
-    will-change: box-shadow, transform;
+    animation: none;
+    box-shadow: none;
+    will-change: auto;
 }
 
 .mobile-logo i {
@@ -481,19 +498,27 @@ footer::before {
 }
 
 .mobile-project-name {
-    font-family: 'Google Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1.8rem;
-    text-align: center;
-    margin: 8px 0 12px;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 6px auto 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary);
+            border-radius: 999px;
+            padding: 6px 18px;
+            background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+            background-size: 260% 100%;
+            -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -0.5px;
-    padding-bottom: 0;
-    border-bottom: none;
-}
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: projectTitleShift 2.2s ease-in-out infinite;
+            will-change: background-position;
+            letter-spacing: -0.5px;
+        }
 
 .mobile-nav-links {
     display: none;
@@ -502,6 +527,7 @@ footer::before {
     border-radius: 15px;
     padding: 20px;
     margin-top: 10px;
+    border: 1px solid rgba(79, 195, 247, 0.5);
     will-change: transform, opacity;
 }
 
@@ -549,6 +575,12 @@ footer::before {
     .requirements h3 { font-size: 1.25rem; }
 }
 
+@media (min-width: 769px) {
+    .maintainership-hero-card {
+        max-width: 900px;
+    }
+}
+
 @media (max-width: 480px) {
     .mobile-project-name {
         font-size: 1.6rem;
@@ -566,6 +598,23 @@ footer::before {
     /* Denser list spacing inside card on small devices */
     .requirements h3 { margin: 18px 0 10px; }
     .requirements li { margin-bottom: 10px; }
+}
+
+@media (min-width: 781px) {
+    .navbar {
+        border: 2px solid var(--primary);
+        border-radius: 999px;
+        padding: 12px 22px;
+        background: #000;
+    }
+
+    .logo-icon {
+        display: none;
+    }
+
+    .logo {
+        gap: 0;
+    }
 }
 
 /* PERFORMANCE OPTIMIZATIONS */
