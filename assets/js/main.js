@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Build screenshot slides early and hint decoding priorities
     const swiperWrapper = document.querySelector('.swiper-wrapper');
-    const screenshotCount = 10;
+    const screenshotCount = 12;
     for (let i = 1; i <= screenshotCount; i++) {
         const slide = document.createElement('div');
         slide.className = 'swiper-slide';
