@@ -24,12 +24,18 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a, #121212);
+            background: #000;
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
+        }
+
+        @keyframes projectTitleShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .android-bar {
@@ -77,8 +83,9 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            animation: pulse 3s infinite;
-            will-change: box-shadow, transform;
+            animation: none;
+            box-shadow: none;
+            will-change: auto;
         }
 
         .logo-icon i {
@@ -90,10 +97,14 @@
             font-family: 'Google Sans', sans-serif;
             font-weight: 700;
             font-size: 24px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+            background-size: 260% 100%;
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: projectTitleShift 2.2s ease-in-out infinite;
+            will-change: background-position;
             letter-spacing: -0.5px;
         }
 
@@ -260,7 +271,7 @@
 
         /* Footer */
         footer {
-            background: var(--darker);
+            background: #000;
             padding: 60px 0 30px;
             position: relative;
             border-radius: 40px 40px 0 0;
@@ -276,7 +287,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--darker);
+            background: #000;
             z-index: -1;
             border-radius: 40px 40px 0 0;
         }
@@ -320,17 +331,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
 
         .social-links a {
             width: 40px;
