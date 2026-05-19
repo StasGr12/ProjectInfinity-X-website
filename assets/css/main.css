@@ -64,7 +64,7 @@ section { scroll-margin-top: 80px; }
     100% { color: #4285f4; }
 }
 
-/* Limitless Possibilities color animation - Blue to Pink */
+/* Limitless Possibilities color animation */
 @keyframes limitlessColorShift {
     0% { color: #4285f4; }
     50% { color: #ff006e; }
@@ -119,8 +119,9 @@ header {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    animation: pulse 3s infinite;
-    will-change: box-shadow, transform;
+    animation: none;
+    box-shadow: none;
+    will-change: auto;
 }
 
 .logo-icon i {
@@ -132,10 +133,14 @@ header {
     font-family: 'Google Sans', sans-serif;
     font-weight: 700;
     font-size: 24px;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+    background-size: 260% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: projectTitleShift 2.2s ease-in-out infinite;
+    will-change: background-position;
     letter-spacing: -0.5px;
 }
 
@@ -290,6 +295,30 @@ header {
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.3);
+}
+
+.page-home .hero-buttons .btn {
+    background: transparent;
+    background-image: none;
+    border: 2px solid var(--primary);
+    border-radius: 999px;
+    box-shadow: none;
+    color: var(--light);
+}
+
+.page-home .hero-buttons .btn:hover {
+    transform: none;
+    background: transparent;
+}
+
+.page-home .hero-buttons .btn:active {
+    background: rgba(66, 133, 244, 0.22);
+    border-color: var(--primary);
+}
+
+.page-home .hero-buttons .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.25);
 }
 
 /* Animated Background Elements */
@@ -710,7 +739,7 @@ header {
 
 /* Footer */
 footer {
-    background: var(--darker);
+    background: rgba(0, 0, 0, 0.9);
     padding: 60px 0 30px;
     position: relative;
     border-radius: 40px 40px 0 0;
@@ -726,7 +755,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--darker);
+    background: rgba(0, 0, 0, 0.9);
     z-index: -1;
     border-radius: 40px 40px 0 0;
 }
@@ -871,6 +900,12 @@ footer::before {
     }
 }
 
+@keyframes projectTitleShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 /* MOBILE NAVIGATION */
 .mobile-nav-container {
     display: none;
@@ -895,8 +930,9 @@ footer::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: pulse 3s infinite;
-    will-change: box-shadow, transform;
+    animation: none;
+    box-shadow: none;
+    will-change: auto;
 }
 
 .mobile-logo i {
@@ -933,13 +969,17 @@ footer::before {
     text-align: center;
     margin: 0;
     padding: 8px 0;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
+    background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+    background-size: 260% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: projectTitleShift 2.2s ease-in-out infinite;
     letter-spacing: -0.5px;
     contain: layout style;
     min-height: 2.5rem;
+    will-change: background-position;
 }
 
 /* Mobile nav links */
@@ -952,7 +992,7 @@ footer::before {
     margin: 8px 0 15px 0;
     position: relative;
     z-index: 999;
-    border: 1px solid rgba(66, 133, 244, 0.2);
+    border: 1px solid rgba(79, 195, 247, 0.5);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     contain: layout style;
     will-change: transform, opacity;
@@ -988,6 +1028,79 @@ footer::before {
 .mobile-nav-links a:hover {
     background: rgba(255, 255, 255, 0.1);
     color: var(--primary);
+}
+
+@media (min-width: 769px) {
+    .page-home {
+        background: #000;
+    }
+
+    .page-home .hero,
+    .page-home .features,
+    .page-home .screenshots,
+    .page-home .download {
+        margin: 12px;
+        border-radius: 20px;
+        border: 1px solid var(--primary);
+        box-shadow: none;
+        background: #000;
+    }
+
+    .page-home .hero {
+        padding: 70px 0 80px;
+        min-height: calc(100vh - 120px);
+    }
+
+    .page-home .features,
+    .page-home .screenshots,
+    .page-home .download {
+        padding: 72px 0;
+    }
+
+    .page-home .sparkles-container,
+    .page-home .droplets-container {
+        border-radius: 20px;
+    }
+
+    .page-home .section-title {
+        margin-bottom: 40px;
+    }
+
+    .page-home footer {
+        margin: 12px 12px 0;
+        border-radius: 24px 24px 0 0;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 38px 0 24px;
+    }
+
+    .page-home footer::before {
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 24px 24px 0 0;
+    }
+
+    .page-home .hero-buttons .btn:hover {
+        transform: none;
+        background: rgba(66, 133, 244, 0.22);
+        border-color: var(--primary);
+    }
+}
+
+@media (min-width: 781px) {
+    .navbar {
+        border: 2px solid var(--primary);
+        border-radius: 999px;
+        padding: 12px 22px;
+        background: #000;
+    }
+
+    .logo-icon {
+        display: none;
+    }
+
+    .logo {
+        gap: 0;
+    }
 }
 
 /* Responsive */
@@ -1103,6 +1216,80 @@ min-height: 70vh;
         border-radius: 30px;
         padding: 40px 0;
     }
+
+    /* Home page: mobile outline layout */
+    .page-home {
+        background: #000;
+    }
+
+    .page-home .mobile-nav-container .container > a {
+        display: flex;
+        justify-content: center;
+    }
+
+    .page-home .mobile-project-name {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--primary);
+        border-radius: 999px;
+        padding: 6px 18px;
+        margin: 6px auto 12px;
+        background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+        background-size: 260% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: projectTitleShift 2.2s ease-in-out infinite;
+        will-change: background-position;
+    }
+
+    .page-home .hero,
+    .page-home .features,
+    .page-home .screenshots,
+    .page-home .download {
+        margin: 14px 12px;
+        border-radius: 20px;
+        border: 1px solid var(--primary);
+        box-shadow: none;
+        background: #000;
+    }
+
+    .page-home .hero {
+        padding: 40px 0;
+        min-height: auto;
+    }
+
+
+    .page-home .sparkles-container,
+    .page-home .droplets-container {
+        border-radius: 20px;
+    }
+
+    .page-home .screenshots {
+        padding: 28px 0;
+    }
+
+    .page-home .screenshots-slider,
+    .page-home .screenshots .swiper {
+        min-height: 520px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .page-home footer {
+        margin: 14px 12px 0;
+        border-radius: 24px 24px 0 0;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 30px 0 24px;
+    }
+
+    .page-home footer::before {
+        background: rgba(0, 0, 0, 0.9);
+        border-radius: 24px 24px 0 0;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1116,6 +1303,13 @@ min-height: 70vh;
         height: 580px;
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+
+    .page-home .screenshots-slider,
+    .page-home .screenshots .swiper {
+        height: 560px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     .hero h1 {
@@ -1132,6 +1326,14 @@ min-height: 70vh;
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .logo-text,
+    .mobile-project-name {
+        animation: none;
+        background-position: 50% 50%;
+    }
+}
+
 @media (max-width: 480px) {
     .swiper-slide {
         height: 475px;
@@ -1141,6 +1343,13 @@ min-height: 70vh;
     .screenshots-slider,
     .swiper {
         height: 530px;
+    }
+
+    .page-home .screenshots-slider,
+    .page-home .screenshots .swiper {
+        height: 520px;
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 
     .features-grid { grid-template-columns: 1fr; gap: 14px; }
