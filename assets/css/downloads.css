@@ -38,6 +38,12 @@
             position: relative;
         }
 
+        @keyframes projectTitleShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         /* Android Status Bar */
         .android-bar {
             height: 4px;
@@ -49,8 +55,13 @@
             z-index: 1000;
         }
 
+        #header-placeholder {
+            display: none;
+            min-height: 0;
+        }
+
         /* Header Styles */
-        header {
+        .downloads-header {
             background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
             padding: 20px 0;
@@ -91,8 +102,9 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            animation: pulse 3s infinite;
-            will-change: transform;
+            animation: none;
+            box-shadow: none;
+            will-change: auto;
         }
 
         .logo-icon i {
@@ -104,10 +116,14 @@
             font-family: 'Google Sans', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(to right, var(--vibrant-blue), var(--vibrant-cyan));
+            background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+            background-size: 260% 100%;
             -webkit-background-clip: text;
     background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: projectTitleShift 2.2s ease-in-out infinite;
+            will-change: background-position;
         }
 
         .back-home {
@@ -127,6 +143,149 @@
         .back-home:hover {
             background: rgba(66, 133, 244, 0.2);
             color: var(--vibrant-blue);
+        }
+
+        @media (min-width: 781px) {
+            #header-placeholder {
+                display: block;
+                min-height: 110px;
+            }
+
+            #header-placeholder .mobile-nav-container {
+                display: none;
+            }
+
+            #header-placeholder header {
+                padding: 30px 0;
+                position: relative;
+                z-index: 10;
+                background: transparent;
+                backdrop-filter: none;
+                box-shadow: none;
+                border-bottom: none;
+            }
+
+            #header-placeholder .container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            #header-placeholder .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: 2px solid var(--vibrant-blue);
+                border-radius: 999px;
+                padding: 12px 22px;
+                background: #000;
+            }
+
+            #header-placeholder .logo {
+                display: flex;
+                align-items: center;
+                gap: 0;
+            }
+
+            #header-placeholder .logo-icon {
+                width: 50px;
+                height: 50px;
+                background: linear-gradient(135deg, var(--vibrant-blue), var(--vibrant-cyan));
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                animation: none;
+                box-shadow: none;
+                will-change: auto;
+                display: none;
+            }
+
+            #header-placeholder .logo-icon i {
+                font-size: 24px;
+                color: white;
+            }
+
+            #header-placeholder .logo-text {
+                font-family: 'Google Sans', sans-serif;
+                font-weight: 700;
+                font-size: 24px;
+                background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
+                background-size: 260% 100%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color: transparent;
+                animation: projectTitleShift 2.2s ease-in-out infinite;
+                will-change: background-position;
+                letter-spacing: -0.5px;
+            }
+
+            #header-placeholder .nav-links {
+                display: flex;
+                gap: 30px;
+            }
+
+            #header-placeholder .nav-links a {
+                color: var(--light);
+                text-decoration: none;
+                font-weight: 500;
+                position: relative;
+                padding: 5px 0;
+                transition: color 0.3s ease;
+            }
+
+            #header-placeholder .nav-links a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--vibrant-blue);
+                transition: width 0.3s ease;
+            }
+
+            #header-placeholder .nav-links a:hover {
+                color: var(--vibrant-blue);
+            }
+
+            #header-placeholder .nav-links a:hover::after {
+                width: 100%;
+            }
+
+            #header-placeholder .nav-cta {
+                background: linear-gradient(to right, var(--vibrant-blue), var(--vibrant-cyan));
+                color: white;
+                padding: 10px 25px;
+                border-radius: 30px;
+                font-weight: 500;
+                text-decoration: none;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+            }
+
+            #header-placeholder .nav-cta:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+            }
+
+            .downloads-header {
+                display: none;
+            }
+        }
+
+        @media (max-width: 780px) {
+            #header-placeholder {
+                display: none !important;
+            }
+
+            .downloads-header {
+                display: block;
+            }
         }
 
         .back-to-list {
@@ -402,165 +561,6 @@
 
         .device-details-image img {
             max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
-
-        .device-details-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .device-info-box {
-            background: rgba(10, 10, 20, 0.7);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(66, 133, 244, 0.1);
-        }
-
-        .info-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--vibrant-cyan);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .info-content {
-            line-height: 1.6;
-            color: #ddd;
-        }
-
-        #deviceDetailsModel {
-            color: white;
-        }
-
-        /* Styling for the device links */
-        .device-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .device-link {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 6px 12px;
-            background: rgba(66, 133, 244, 0.1);
-            border-radius: 50px;
-            color: var(--vibrant-blue);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(66, 133, 244, 0.3);
-            font-size: 0.9rem;
-        }
-
-        .device-link:hover {
-            background: rgba(66, 133, 244, 0.2);
-            color: var(--vibrant-cyan);
-        }
-
-        .downloads-container {
-            background: rgba(10, 10, 20, 0.7);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(66, 133, 244, 0.1);
-        }
-
-        .downloads {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .download-card {
-            background: rgba(20, 20, 40, 0.8);
-            border-radius: 10px;
-            padding: 15px;
-            border: 1px solid rgba(66, 133, 244, 0.1);
-            transition: var(--transition);
-            will-change: transform;
-        }
-		
-.downloads:has(.download-card:only-child) {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 15px auto 0;
-}
-
-        .download-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            border-color: rgba(66, 133, 244, 0.3);
-        }
-
-        .download-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--vibrant-cyan);
-        }
-
-        .download-meta {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin: 8px 0;
-        }
-
-        .download-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--vibrant-blue), var(--vibrant-cyan));
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
-            text-decoration: none;
-            will-change: transform;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.4);
-        }
-
-        .btn-gapps {
-            background: linear-gradient(135deg, #28a745, #20c997);
-        }
-
-        .btn-vanilla {
-            background: linear-gradient(135deg, #6f42c1, #d63384);
-        }
-
-        .guides-container {
-            background: rgba(10, 10, 20, 0.7);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(66, 133, 244, 0.1);
-        }
-
-        .tab-container {
-            margin-top: 15px;
-        }
-
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid rgba(66, 133, 244, 0.1);
-            margin-bottom: 15px;
         }
 
         .tab {
