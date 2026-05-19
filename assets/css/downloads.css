@@ -561,6 +561,165 @@
 
         .device-details-image img {
             max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .device-details-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .device-info-box {
+            background: rgba(10, 10, 20, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(66, 133, 244, 0.1);
+        }
+
+        .info-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--vibrant-cyan);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-content {
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        #deviceDetailsModel {
+            color: white;
+        }
+
+        /* Styling for the device links */
+        .device-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .device-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            background: rgba(66, 133, 244, 0.1);
+            border-radius: 50px;
+            color: var(--vibrant-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(66, 133, 244, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .device-link:hover {
+            background: rgba(66, 133, 244, 0.2);
+            color: var(--vibrant-cyan);
+        }
+
+        .downloads-container {
+            background: rgba(10, 10, 20, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(66, 133, 244, 0.1);
+        }
+
+        .downloads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .download-card {
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(66, 133, 244, 0.1);
+            transition: var(--transition);
+            will-change: transform;
+        }
+		
+.downloads:has(.download-card:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 15px auto 0;
+}
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-color: rgba(66, 133, 244, 0.3);
+        }
+
+        .download-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--vibrant-cyan);
+        }
+
+        .download-meta {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin: 8px 0;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--vibrant-blue), var(--vibrant-cyan));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+            text-decoration: none;
+            will-change: transform;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.4);
+        }
+
+        .btn-gapps {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .btn-vanilla {
+            background: linear-gradient(135deg, #6f42c1, #d63384);
+        }
+
+        .guides-container {
+            background: rgba(10, 10, 20, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(66, 133, 244, 0.1);
+        }
+
+        .tab-container {
+            margin-top: 15px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid rgba(66, 133, 244, 0.1);
+            margin-bottom: 15px;
         }
 
         .tab {
