@@ -38,12 +38,6 @@
             position: relative;
         }
 
-        @keyframes projectTitleShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         /* Android Status Bar */
         .android-bar {
             height: 4px;
@@ -55,170 +49,6 @@
             z-index: 1000;
         }
 
-        #header-placeholder {
-            min-height: 110px;
-            display: block;
-            contain: layout style;
-        }
-
-        #header-placeholder .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* MOBILE NAVIGATION */
-        .mobile-nav-container {
-            display: none;
-            position: relative;
-            z-index: 100;
-            contain: layout style;
-            min-height: 0;
-        }
-
-        .mobile-top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            gap: 6px;
-        }
-
-        .mobile-project-link {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            min-width: 0;
-        }
-
-        .mobile-logo {
-            width: 44px;
-            height: 44px;
-            background: transparent;
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: none;
-            box-shadow: none;
-            will-change: auto;
-        }
-
-        .mobile-logo i {
-            font-size: 20px;
-            color: var(--primary);
-        }
-
-        .mobile-menu-toggle {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: transparent;
-            border: 2px solid var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            will-change: border-color, transform;
-        }
-
-        .mobile-menu-toggle:hover {
-            background: transparent;
-        }
-
-        .mobile-menu-toggle i {
-            font-size: 22px;
-            color: var(--primary);
-        }
-
-        .mobile-project-name {
-            font-family: 'Google Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            text-align: center;
-            margin: 0;
-            padding: 8px 0;
-            background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
-            background-size: 260% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            animation: projectTitleShift 2.2s ease-in-out infinite;
-            letter-spacing: -0.5px;
-            line-height: 1;
-            white-space: nowrap;
-            max-width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            contain: layout style;
-            min-height: 2.5rem;
-            will-change: background-position;
-        }
-
-        body .mobile-project-name {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--primary);
-            border-radius: 999px;
-            padding: 8px 20px;
-            margin: 0;
-            line-height: 1.05;
-        }
-
-        .mobile-nav-links {
-            display: none;
-            flex-direction: column;
-            background: rgba(0, 0, 0, 0.95);
-            border-radius: 15px;
-            padding: 15px;
-            margin: 8px 0 15px 0;
-            position: relative;
-            z-index: 999;
-            border: 1px solid rgba(79, 195, 247, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            contain: layout style;
-            will-change: transform, opacity;
-        }
-
-        .mobile-nav-links.active {
-            display: flex;
-        }
-
-        .mobile-nav-links a {
-            padding: 12px 16px;
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 10px;
-            margin-bottom: 6px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            will-change: background, color;
-        }
-
-        .mobile-nav-links a i {
-            width: 20px;
-            text-align: center;
-        }
-
-        .mobile-nav-links a:last-child {
-            margin-bottom: 0;
-        }
-
-        .mobile-nav-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--primary);
-        }
-
         .container {
             width: 90%;
             max-width: 1200px;
@@ -227,15 +57,6 @@
         }
 
         @media (min-width: 781px) {
-            #header-placeholder {
-                display: block;
-                min-height: 110px;
-            }
-
-            #header-placeholder .mobile-nav-container {
-                display: none;
-            }
-
             body > .container {
                 padding-top: 8px;
                 padding-bottom: 20px;
@@ -248,133 +69,9 @@
             .device-details-screen {
                 padding-top: 8px;
             }
-
-            #header-placeholder header {
-                padding: 30px 0;
-                position: relative;
-                z-index: 10;
-                background: transparent;
-                backdrop-filter: none;
-                box-shadow: none;
-                border-bottom: none;
-            }
-
-            #header-placeholder .container {
-                width: 100%;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-
-            #header-placeholder .navbar {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                border: 2px solid var(--vibrant-blue);
-                border-radius: 999px;
-                padding: 12px 22px;
-                background: #000;
-            }
-
-            #header-placeholder .logo {
-                display: flex;
-                align-items: center;
-                gap: 0;
-            }
-
-            #header-placeholder .logo-icon {
-                width: 50px;
-                height: 50px;
-                background: linear-gradient(135deg, var(--vibrant-blue), var(--vibrant-cyan));
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                overflow: hidden;
-                animation: none;
-                box-shadow: none;
-                will-change: auto;
-                display: none;
-            }
-
-            #header-placeholder .logo-icon i {
-                font-size: 24px;
-                color: white;
-            }
-
-            #header-placeholder .logo-text {
-                font-family: 'Google Sans', sans-serif;
-                font-weight: 700;
-                font-size: 24px;
-                background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
-                background-size: 260% 100%;
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                color: transparent;
-                animation: projectTitleShift 2.2s ease-in-out infinite;
-                will-change: background-position;
-                letter-spacing: -0.5px;
-            }
-
-            #header-placeholder .nav-links {
-                display: flex;
-                gap: 30px;
-            }
-
-            #header-placeholder .nav-links a {
-                color: var(--light);
-                text-decoration: none;
-                font-weight: 500;
-                position: relative;
-                padding: 5px 0;
-                transition: color 0.3s ease;
-            }
-
-            #header-placeholder .nav-links a::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background: var(--vibrant-blue);
-                transition: width 0.3s ease;
-            }
-
-            #header-placeholder .nav-links a:hover {
-                color: var(--vibrant-blue);
-            }
-
-            #header-placeholder .nav-links a:hover::after {
-                width: 100%;
-            }
-
-            #header-placeholder .nav-cta {
-                background: linear-gradient(to right, var(--vibrant-blue), var(--vibrant-cyan));
-                color: white;
-                padding: 10px 25px;
-                border-radius: 30px;
-                font-weight: 500;
-                text-decoration: none;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
-            }
-
-            #header-placeholder .nav-cta:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
-            }
-
         }
 
         @media (max-width: 780px) {
-            #header-placeholder {
-                display: block;
-                min-height: 0;
-            }
-
             body > .container {
                 padding-top: 8px;
                 padding-bottom: 20px;
@@ -386,26 +83,6 @@
 
             .device-details-screen {
                 padding-top: 8px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar, .logo-text {
-                display: none;
-            }
-
-            .mobile-nav-container {
-                display: block;
-            }
-
-            .mobile-project-name {
-                font-size: clamp(1.2rem, 4.4vw, 1.5rem);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .mobile-project-name {
-                font-size: 1.5rem;
             }
         }
 

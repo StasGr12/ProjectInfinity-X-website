@@ -31,12 +31,6 @@ body {
     position: relative;
 }
 
-@keyframes projectTitleShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 html body {
     background: #000;
 }
@@ -55,158 +49,6 @@ html body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-.mobile-project-link {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    min-width: 0;
-}
-
-body .mobile-project-name {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--primary);
-    border-radius: 999px;
-    padding: 8px 20px;
-    margin: 0;
-    background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
-    background-size: 260% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: projectTitleShift 2.2s ease-in-out infinite;
-    will-change: background-position;
-    line-height: 1.05;
-    white-space: nowrap;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Header Styles */
-header {
-    padding: 30px 0;
-    position: relative;
-    z-index: 10;
-}
-
-/* Reserve space for header when injected via templating to avoid CLS */
-#header-placeholder { min-height: 110px; display: block; contain: layout style; }
-
-/* Mobile navigation height consistency */
-@media (max-width: 780px) {
-    #header-placeholder { min-height: 90px; }
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-body .logo-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    animation: none;
-    box-shadow: none;
-    will-change: auto;
-}
-
-.logo-icon i {
-    font-size: 24px;
-    color: white;
-}
-
-body .mobile-logo {
-    animation: none;
-    box-shadow: none;
-    will-change: auto;
-}
-
-.logo-text {
-    font-family: 'Google Sans', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
-    background-size: 260% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: projectTitleShift 2.2s ease-in-out infinite;
-    will-change: background-position;
-    letter-spacing: -0.5px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: var(--light);
-    text-decoration: none;
-    font-weight: 500;
-    position: relative;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-    will-change: color, width;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: width 0.3s ease;
-    will-change: width;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-cta {
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    color: white;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
-    will-change: transform, box-shadow;
-}
-
-.nav-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
 }
 
 /* FAQ Hero Section */
@@ -557,26 +399,6 @@ footer::before {
         font-size: 1.1rem;
     }
     
-    .mobile-project-name {
-        font-size: 1.1rem;
-    }
-}
-
-@media (min-width: 781px) {
-    .navbar {
-        border: 2px solid var(--primary);
-        border-radius: 999px;
-        padding: 12px 22px;
-        background: #000;
-    }
-
-    body .logo-icon {
-        display: none;
-    }
-
-    .logo {
-        gap: 0;
-    }
 }
 
 /* Performance optimizations */
