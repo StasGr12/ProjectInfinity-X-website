@@ -162,7 +162,8 @@ devicesGrid.addEventListener('click', function(e) {
 });
 
 function getDownloadUrl(primaryCodename, variant, androidVersion, jsonData) {
-    return jsonData.download;
+    const filename = jsonData.filename;
+    return `https://mirror.tejas101k.workers.dev/0:/${filename}`;
 }
 
 // --------- LOAD DEVICE DETAILS (with download link switching) ----------
