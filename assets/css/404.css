@@ -407,13 +407,24 @@
             justify-content: space-between;
             align-items: center;
             padding: 12px 0;
+            gap: 6px;
+        }
+
+        .mobile-project-link {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            min-width: 0;
         }
 
         .mobile-logo {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 10px;
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -423,38 +434,39 @@
         }
 
         .mobile-logo i {
-            font-size: 18px;
-            color: white;
+            font-size: 20px;
+            color: var(--primary);
         }
 
         .mobile-menu-toggle {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            will-change: background, transform;
+            will-change: border-color, transform;
         }
 
         .mobile-menu-toggle:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: transparent;
         }
 
         .mobile-menu-toggle i {
-            font-size: 20px;
-            color: white;
+            font-size: 22px;
+            color: var(--primary);
         }
 
         .mobile-project-name {
             font-family: 'Google Sans', sans-serif;
             font-weight: 700;
-            font-size: 1.8rem;
+            font-size: clamp(1.2rem, 4.4vw, 1.5rem);
             text-align: center;
-            margin: 8px 0 12px;
+            margin: 0;
             background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
             background-size: 260% 100%;
             background-clip: text;
@@ -464,6 +476,11 @@
             animation: projectTitleShift 2.2s ease-in-out infinite;
             will-change: background-position;
             letter-spacing: -0.5px;
+            line-height: 1.05;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .mobile-nav-links {
@@ -544,7 +561,7 @@
 
         @media (max-width: 480px) {
             .mobile-project-name {
-                font-size: 1.6rem;
+                font-size: 1.1rem;
             }
             
             .error-content h1 {

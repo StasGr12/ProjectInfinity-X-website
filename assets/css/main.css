@@ -93,7 +93,7 @@ header {
 /* Mobile navigation height consistency */
 @media (max-width: 780px) {
     #header-placeholder {
-        min-height: 140px;
+        min-height: 0;
     }
 }
 
@@ -912,7 +912,7 @@ footer::before {
     position: relative;
     z-index: 100;
     contain: layout style;
-    min-height: 140px;
+    min-height: 0;
 }
 
 .mobile-top-bar {
@@ -920,13 +920,24 @@ footer::before {
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
+    gap: 6px;
+}
+
+.mobile-project-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    min-width: 0;
 }
 
 .mobile-logo {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -936,30 +947,31 @@ footer::before {
 }
 
 .mobile-logo i {
-    font-size: 18px;
-    color: white;
+    font-size: 20px;
+    color: var(--primary);
 }
 
 .mobile-menu-toggle {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    will-change: background, transform;
+    will-change: border-color, transform;
 }
 
 .mobile-menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
 }
 
 .mobile-menu-toggle i {
-    font-size: 20px;
-    color: white;
+    font-size: 22px;
+    color: var(--primary);
 }
 
 .mobile-project-name {
@@ -977,6 +989,11 @@ footer::before {
     color: transparent;
     animation: projectTitleShift 2.2s ease-in-out infinite;
     letter-spacing: -0.5px;
+    line-height: 1;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     contain: layout style;
     min-height: 2.5rem;
     will-change: background-position;
@@ -1168,7 +1185,7 @@ min-height: 70vh;
     }
 
     .mobile-project-name {
-        font-size: 1.6rem;
+        font-size: clamp(1.2rem, 4.4vw, 1.5rem);
     }
 
     .feedback-cards {
@@ -1233,8 +1250,8 @@ min-height: 70vh;
         justify-content: center;
         border: 2px solid var(--primary);
         border-radius: 999px;
-        padding: 6px 18px;
-        margin: 6px auto 12px;
+        padding: 8px 20px;
+        margin: 0;
         background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
         background-size: 260% 100%;
         -webkit-background-clip: text;
@@ -1242,6 +1259,9 @@ min-height: 70vh;
         -webkit-text-fill-color: transparent;
         color: transparent;
         animation: projectTitleShift 2.2s ease-in-out infinite;
+        line-height: 1.05;
+        white-space: nowrap;
+        max-width: 100%;
         will-change: background-position;
     }
 

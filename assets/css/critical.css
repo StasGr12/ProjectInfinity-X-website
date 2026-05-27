@@ -41,11 +41,11 @@ header,
   }
   
   #header-placeholder {
-    min-height: 140px;
+    min-height: 0;
   }
   
   .mobile-nav-container {
-    min-height: 140px;
+    min-height: 0;
   }
 }
 

@@ -57,9 +57,13 @@ html body {
     padding: 0 20px;
 }
 
-.mobile-nav-container .container > a {
+.mobile-project-link {
+    flex: 1;
     display: flex;
+    align-items: center;
     justify-content: center;
+    text-decoration: none;
+    min-width: 0;
 }
 
 body .mobile-project-name {
@@ -68,8 +72,8 @@ body .mobile-project-name {
     justify-content: center;
     border: 2px solid var(--primary);
     border-radius: 999px;
-    padding: 6px 18px;
-    margin: 6px auto 12px;
+    padding: 8px 20px;
+    margin: 0;
     background: linear-gradient(90deg, #81d4fa, #4fc3f7, #1e88e5, #90caf9);
     background-size: 260% 100%;
     -webkit-background-clip: text;
@@ -78,6 +82,11 @@ body .mobile-project-name {
     color: transparent;
     animation: projectTitleShift 2.2s ease-in-out infinite;
     will-change: background-position;
+    line-height: 1.05;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Header Styles */
@@ -549,7 +558,7 @@ footer::before {
     }
     
     .mobile-project-name {
-        font-size: 1.6rem;
+        font-size: 1.1rem;
     }
 }
 
